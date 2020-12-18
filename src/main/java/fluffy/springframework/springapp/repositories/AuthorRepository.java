@@ -1,4 +1,7 @@
 package fluffy.springframework.springapp.repositories;
 
-public interface AuthorRepository {
+import fluffy.springframework.springapp.model.Author;
+import org.springframework.data.repository.CrudRepository;
+
+public interface AuthorRepository extends CrudRepository<Author,Long> {
 }
