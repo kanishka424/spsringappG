@@ -22,8 +22,8 @@ public class Author {
     }
 
     public Author(String firstName,String lastName){
-        firstName=this.firstName;
-        lastName=this.lastName;
+        this.firstName=firstName;
+        this.lastName=lastName;
 
     }
 
@@ -64,12 +64,13 @@ public class Author {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Author author = (Author) o;
-        return id.equals(author.id);
+
+        return id != null ? id.equals(author.id) : author.id == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return id != null ? id.hashCode() : 0;
     }
 
     @Override

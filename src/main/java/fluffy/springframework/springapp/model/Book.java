@@ -26,11 +26,10 @@ public class Book {
 
     }
 
-    public Book(String isbn, String title, String publisher, Set<Author> authors) {
+    public Book(String isbn, String title, String publisher) {
         this.isbn = isbn;
         this.title = title;
         this.publisher = publisher;
-        this.authors = authors;
     }
 
     public Long getId() {
@@ -79,12 +78,13 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return id.equals(book.id);
+
+        return id != null ? id.equals(book.id) : book.id == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return id != null ? id.hashCode() : 0;
     }
 
 
